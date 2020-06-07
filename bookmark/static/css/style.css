@@ -1,0 +1,16 @@
+body {
+    background-color: rgb(205, 255, 106);
+    font-family: 'THE외계인설명서';
+    font-size: 25px;
+    
+}
+header { 
+    font-size: 50px;
+    color: tomato;
+}
+
+.markname {
+    background-color: orange;
+    max-width: 300px;
+    
+}
