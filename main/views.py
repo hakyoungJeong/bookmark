@@ -1,13 +1,18 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Bookmark
 from .forms import BookmarkForm
+from django.core.paginator import Paginator
 
 # Create your views here.
 
 def show(request):
+    bookmark = Bookmark.objects
     bookmarks = Bookmark.objects.all()
+    paginator = Paginator(bookmarks, 2)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
 
-    return render(request, 'show.html', {'bookmarks':bookmarks})
+    return render(request, 'show.html', {'bookmark':bookmark, 'posts':posts})
 
 def new(request):
 

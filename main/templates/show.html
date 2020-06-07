@@ -13,9 +13,9 @@
     </div>
 </div>
 <div>
-    {% if bookmarks %}
+    {% if posts %}
 
-    {% for bookmark in bookmarks %}
+    {% for bookmark in posts %}
     <div>
         <p class="markname"> {{ bookmark.site_name }}</p>
         <p class="markname">{{ bookmark.site_url }}</p>
@@ -29,6 +29,16 @@
     </div>
 
     {% endfor %}
+    {% if posts.has_previous %}
+    <a href="?page={{posts.previous_page_number}}">previous</a>
+    {% endif %}
+    <span>{{ posts.number }}</span>
+    <span>/</span>
+    <span>{{ posts.paginator.num_pages }}</span>
+    {% if posts.has_next %}
+    <a href="?page={{posts.next_page_number}}">next</a>
+    {% endif %}
+    
     {% else %}
     
     <div>
